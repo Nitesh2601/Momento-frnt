@@ -148,7 +148,7 @@ const Usergallery = ({ user }) => {
   return (
     <div className="max-w-4xl mx-auto p-6">
       <h2 className="text-2xl font-bold text-center mb-4">Gallery</h2>
-      {user && <p className="text-center pb-4 text-gray-600">Welcome, {user.name}</p>}
+      {user && <p className="text-center pb-4 text-gray-600">{user.name}</p>}
       
       {/* <div className="flex justify-center mb-4">
         <button onClick={() => setShowModal(true)} className="bg-green-500 text-white px-4 py-2 rounded flex items-center space-x-2 hover:bg-green-600">

@@ -56,7 +56,7 @@ const Navbar = ({ userId }) => {
 
     setTimeout(() => {
       navigate('/login');
-      window.location.reload();
+      // window.location.reload();
     }, 1000);
   };
 
