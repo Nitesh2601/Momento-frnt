@@ -218,7 +218,7 @@ const Gallery = ({ user }) => {
               setPreview(URL.createObjectURL(e.target.files[0]));
             }} className="mb-2" />
             {preview && <img src={preview} alt="Preview" className="w-full h-40 object-cover rounded-lg mb-2" />}
-            <input type="text" placeholder="Enter caption" value={caption} onChange={(e) => setCaption(e.target.value)} className="w-full p-2 border rounded mb-2" />
+            <input type="text" placeholder="Enter caption(caption is compulsory)" value={caption} onChange={(e) => setCaption(e.target.value)} className="w-full p-2 border rounded mb-2" />
             <div className="flex justify-end space-x-2">
               <button onClick={() => setShowModal(false)} className="bg-gray-500 text-white px-4 py-2 rounded">Cancel</button>
               <button 

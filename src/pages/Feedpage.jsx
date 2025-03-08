@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import { NavLink, useParams } from 'react-router-dom';
-import { FiPlus,FiTrash2, FiHeart,FiMessageSquare } from 'react-icons/fi';
-
+import { FiPlus,FiTrash2, FiHeart,FiMessageSquare,FiUser } from 'react-icons/fi';
+import { FaCircleUser } from "react-icons/fa6";
 import API_BASE_URL from '../config';
 
 
@@ -60,7 +60,7 @@ const [visibleComments, setVisibleComments] = useState({});
       });
 
       const data = await response.json();
-      // console.log('Fetched Posts:', data);
+      console.log('Fetched Posts:', data);
 
       if (data.success) {
         setPosts(data.posts);
@@ -90,18 +90,22 @@ const [visibleComments, setVisibleComments] = useState({});
       const token = localStorage.getItem('token');
       const response = await fetch(`${API_BASE_URL}/user/post/${postId}/like`, {
         method: 'POST',
-        headers: { 'Authorization': `Bearer ${token}`, 
-          'Content-Type': 'application/json' 
-        },
+        headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
       });
+  
       const data = await response.json();
       if (data.success) {
-        setPosts(posts.map(post => post._id === postId ? { ...post, likes: data.likes } : post));
+        setPosts((prevPosts) =>
+          prevPosts.map((post) =>
+            post._id === postId ? { ...post, likes: data.likes } : post
+          )
+        );
       }
     } catch (error) {
       console.error('Error liking post:', error);
     }
   };
+  
 
 
    //handle comments
@@ -173,6 +177,13 @@ const [visibleComments, setVisibleComments] = useState({});
                   
                   {/* Only wrap the image and caption with NavLink */}
                   <NavLink to={`/userpage/${post.user._id}`} className="block">
+                    
+                    <div className='flex p-2 gap-1'>
+                    
+                    <FaCircleUser className="size-6 text-gray-600 " />
+                    <p> {post.user.name} </p>
+                    </div>
+                         
                     <img src={post.image.url} alt={post.caption} className="w-full h-56 object-cover rounded-lg" />
                     <p className="text-center text-sm text-gray-700 mt-2">{post.caption}</p>
                   </NavLink>
