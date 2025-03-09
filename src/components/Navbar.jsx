@@ -94,7 +94,7 @@ const Navbar = ({ userId }) => {
     <nav className="bg-gray-900 text-white p-4 shadow-lg relative">
       <div className="mx-auto flex flex-col gap-1 sm:flex-row items-center justify-between w-full ">
 
-        <div className='flex  sm:flex-row items-center gap-4 w-full '>
+        <div className='flex h-fit w-full justify-center sm:flex-row items-center gap-4 w-full '>
           {/* Logo */} 
             <NavLink to="/" className="text-2xl font-bold ">
               Momento 
@@ -145,11 +145,14 @@ const Navbar = ({ userId }) => {
             <p className="text-gray-400">Loading...</p>
           ) : (
             <>
-              <div className=" mr-20 sm:mr-0 text-lg font-semibold text-white px-4 py-2 bg-gray-800 rounded-lg shadow-md" 
+
+            
+              <div className=" mr-36 sm:mr-0 text-lg font-semibold text-white px-4 py-2 bg-gray-800 rounded-lg shadow-md" 
               >{user?.name}
 
               </div>
-              
+             
+            
               <NavLink to={`/personal/${userId}`}>
                 <div className="w-10 h-10 bg-gray-500 rounded-full overflow-hidden border border-gray-400 flex items-center justify-center">
                 <FaUserCircle className="text-white w-8 h-8" />
