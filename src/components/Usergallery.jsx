@@ -156,7 +156,7 @@ const Usergallery = ({ user }) => {
         </button>
       </div> */}
 
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {posts.map((post) => (
           <div key={post._id} className="relative p-4 border rounded-lg shadow-lg">
             <img src={post.image.url} alt={post.caption} className="w-full h-40 object-cover rounded-lg" />

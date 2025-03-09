@@ -92,46 +92,50 @@ const Navbar = ({ userId }) => {
 
   return (
     <nav className="bg-gray-900 text-white p-4 shadow-lg relative">
-      <div className="mx-auto flex justify-between items-center w-full">
-        {/* Logo */}
-        <NavLink to="/" className="text-2xl font-bold ">
-          Momento 
-        </NavLink>
+      <div className="mx-auto flex flex-col gap-1 sm:flex-row items-center justify-between w-full ">
 
-        {/* Search Bar */}
-        <div className="flex-grow mx-6 max-w-lg relative">
-          <input
-            type="text"
-            placeholder="Search by username or name..."
-            className="w-full p-2 rounded-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            value={searchQuery}
-            onChange={(e) => handleSearch(e.target.value)}
-          />
+        <div className='flex  sm:flex-row items-center gap-4 w-full '>
+          {/* Logo */} 
+            <NavLink to="/" className="text-2xl font-bold ">
+              Momento 
+            </NavLink>
 
-          {/* Display search results */}
-          {searchResults.length > 0 && (
-            <div className="absolute z-50 w-full bg-gray-400 text-black border rounded-lg mt-1 shadow-lg">
-              {searchResults.map((user) => (
-                <NavLink
-                  key={user._id}
-                  to={`/userpage/${user._id}`}
-                  className="block p-2 hover:bg-gray-500"
-                  onClick={() => setSearchQuery('')}
-                >
-                  <div className="flex items-center space-x-2">
-                    {/* <img
-                      src={user.profilePic || 'https://via.placeholder.com/40'}
-                      alt={user.name}
-                      className="w-8 h-8 rounded-full object-cover"
-                    /> */}
-                    {/* <span>{user.name} (@{user.username})</span> */}
-                    <FaUserCircle className="text-white w-4 h-4" />
-                    <span>{user.name}</span>
-                  </div>
-                </NavLink>
-              ))}
+            {/* Search Bar */}
+            <div className="flex-grow mx-6 max-w-lg relative">
+              <input
+                type="text"
+                placeholder="Search by name..."
+                className="w-full p-2 rounded-lg bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                value={searchQuery}
+                onChange={(e) => handleSearch(e.target.value)}
+              />
+
+              {/* Display search results */}
+              {searchResults.length > 0 && (
+                <div className="absolute z-50 w-full bg-gray-400 text-black border rounded-lg mt-1 shadow-lg">
+                  {searchResults.map((user) => (
+                    <NavLink
+                      key={user._id}
+                      to={`/userpage/${user._id}`}
+                      className="block p-2 hover:bg-gray-500"
+                      onClick={() => setSearchQuery('')}
+                    >
+                      <div className="flex items-center space-x-2">
+                        {/* <img
+                          src={user.profilePic || 'https://via.placeholder.com/40'}
+                          alt={user.name}
+                          className="w-8 h-8 rounded-full object-cover"
+                        /> */}
+                        {/* <span>{user.name} (@{user.username})</span> */}
+                        <FaUserCircle className="text-white w-4 h-4" />
+                        <span>{user.name}</span>
+                      </div>
+                    </NavLink>
+                  ))}
+                </div>
+              )}
             </div>
-          )}
+
         </div>
 
         {/* Profile & Logout Section */}
@@ -141,7 +145,7 @@ const Navbar = ({ userId }) => {
             <p className="text-gray-400">Loading...</p>
           ) : (
             <>
-              <div className="text-lg font-semibold text-white px-4 py-2 bg-gray-800 rounded-lg shadow-md" 
+              <div className=" mr-20 sm:mr-0 text-lg font-semibold text-white px-4 py-2 bg-gray-800 rounded-lg shadow-md" 
               >{user?.name}
 
               </div>
