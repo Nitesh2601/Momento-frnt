@@ -158,7 +158,9 @@ const [visibleComments, setVisibleComments] = useState({});
  
 
   return (
-    <div className="min-h-screen  bg-gray-100">
+
+    <div className="min-h-screen bg-neutral-100">
+
 
        <Navbar userId={_id}/>
 
@@ -173,7 +175,7 @@ const [visibleComments, setVisibleComments] = useState({});
         ) : posts.length > 0 ? (
           <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {posts.map((post) => (
-                <div key={post._id} className="relative p-4 border rounded-lg shadow-lg">
+                <div key={post._id} className="relative p-4 bg-neutral-200 border rounded-lg shadow-lg">
                   
                   {/* Only wrap the image and caption with NavLink */}
                   <NavLink to={`/userpage/${post.user._id}`} className="block">
